@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import '~ngx-toastr/toastr';
+@import 'custom-pagination';
+html, body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	background: $white;
+	color: $primary-text-color;
+	overflow: hidden;
+  font-family: $primary-font;
+  min-height: 100vh;
+    
+  h1, h2, h3 {
+      margin: 0;
+  }
+  
+  a {
+      color: $white;
+      text-decoration: none;
+  }
+}
+
+// Custom scrollbar styles 
+::-webkit-scrollbar {
+  width: .8rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $white; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+
+.toast {
+  color: $white;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.toast-success {
+  background-color: green;
+}
+.toast-error {
+  background-color: red;
+}
+
+.toast-title {
+  font-size: 1.1rem;
+  text-transform: none;
+}
+
+.toast-container.toast-top-center .custom-toast, .toast-container.toast-bottom-center .custom-toast {
+  width: auto;
+  margin: 0;
+  display: block;
+  text-align: center;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  max-width: 500px;
+  opacity: 1;
+  background-image: none;
+  padding: 1rem;
+  @media screen and (max-width: 767px) {
+    width: 98%;
+  }
+}

@@ -1,0 +1,59 @@
+<aside class="results-container" *ngIf="movieResults && movieResults.length > 0;else noResults">
+  <div class="result" id="{{ result.imdbID }}"
+      *ngFor="let result of movieResults | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
+      (click)="onResultClick(result.imdbID)"
+      [ngClass]="{'selected': activeResultId == result.imdbID}">
+    <div class="main-wrapper">
+      <div class="img-container">
+        <picture>
+          <source srcset="{{result.Poster}}">
+            <img src="assets/images/default.jpg" title="{{result.Title}}">
+        </picture>
+      </div>
+      <div class="main-content">
+        <p>{{result.Title}}</p>
+        <p>Type : {{result.Type}}</p>
+        <p>Released on : {{result.Year}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="custom-pagination-controls">
+    <pagination-controls class="custom-pagination" (pageChange)="currentPage = $event"></pagination-controls>
+    <div class="custom-select-form">
+      <label>Records Per Page</label>
+      <select class="pagination-select" [(ngModel)]="itemsPerPage">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="old-results" *ngIf="oldResults && oldResults.length > 0">
+      <h3>Previous Search Results:</h3>
+      <div class="result" id="{{ result.imdbID }}" *ngFor="let result of oldResults" (click)="onResultClick(result.imdbID)"
+      [ngClass]="{'selected': activeResultId == result.imdbID}">
+          <div class="main-wrapper">
+            <div class="img-container">
+              <picture>
+                <source srcset="{{result.Poster}}">
+                  <img src="assets/images/default.jpg" title="{{result.Title}}">
+              </picture>
+            </div>
+            <div class="main-content">
+              <p>{{result.Title}}</p>
+              <p>Type : {{result.Type}}</p>
+              <p>Released on : {{result.Year}}</p>
+            </div>
+          </div>
+        </div>
+  </div>
+</aside>
+<ng-template #noResults>
+  <div class="empty-screen">
+      <h1>Welcome Guest</h1>
+      <ul><h2>Overview:</h2>
+        <li>This is a simple frontend application built with Angular-7, utilizing the omdbapi for fetching the data.</li>
+        <li>This Application lets you search for movies by part of it's title and showcase the results</li>
+        <li>It can keep track of your previous search results as well, which will be showcased just under the original results</li>
+        <li>By selecting any of the result, complete details of the movie will be displayed</li>
+      </ul>
+  </div>
+</ng-template>

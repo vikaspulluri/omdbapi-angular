@@ -1,0 +1,82 @@
+<aside *ngIf="movieId && isResultsPresent" [ngClass]="{'selected': movieId}">
+    <div class="results-container" *ngIf="movieDetails">
+        <div class="mobile-header">
+            <div class="back-btn">
+                <a [routerLink]="['/search']"><Back</a>
+            </div>
+        </div>
+        <div class="title">
+            <h1>{{movieDetails.Title}}</h1>
+        </div>
+        <div class="rated" *ngIf="movieDetails.Rated">
+            <p>({{movieDetails.Rated}})</p>
+        </div>
+        <div class="characters-container">
+            <!-- attributes container will inject here -->
+            <div class="column">
+                <span><b>Year</b>{{movieDetails.Year}}</span>
+                <span><b>released</b>{{movieDetails.Released}}</span>
+                <span><b>runtime</b>{{movieDetails.Runtime}}</span>
+            </div>
+            <div class="column">
+                <span><b>type</b>{{movieDetails.Type}}</span>
+                <span><b>language</b>{{movieDetails.Language}}</span>
+                <span><b>genre</b>{{movieDetails.Genre}}</span>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="left-container">
+                <div class="img-holder">
+                    <picture>
+                        <source srcset="{{movieDetails.Poster}}">
+                        <img src="assets/images/default.jpg">
+                    </picture>
+                </div>
+            </div>
+            <div class="ratings-container" *ngIf="movieDetails.Ratings">
+                <!-- ratings will inject here -->
+                <div class="column" *ngFor="let rating of movieDetails.Ratings">
+                    <p>{{rating.Value}}</p><p>{{rating.Source}}</p>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="content-wrapper">
+                    <div class="tabs-container">
+                        <ul>
+                            <li class="active" target-id="overview">Overview</li>
+                            <li target-id="cast">Cast</li>
+                            <li target-id="imdb-data">IMDB data</li>
+                            <li target-id="other">Other Info</li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <div id="overview" class="active">
+                            <!-- content will inject here -->
+                            <div class="item">
+                                <strong>plot</strong><p>{{movieDetails.Plot}}</p>
+                            </div>
+                        </div>
+                        <div id="cast">
+                            <div class="item" *ngFor="let cast of movieDetails.Cast">
+                                <strong>{{ cast.key }}</strong>
+                                <p>{{ cast.value }}</p>
+                            </div>
+                        </div>
+                        <div id="imdb-data">
+                            <div class="item" *ngFor="let data of movieDetails.ImdbData">
+                                <strong>{{ data.key }}</strong>
+                                <p>{{ data.value }}</p>
+                            </div>
+                        </div>
+                        <div id="other">
+                            <div class="item" *ngFor="let otherData of movieDetails.OtherInfo">
+                                <strong>{{ otherData.key }}</strong>
+                                <p>{{ otherData.value }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</aside>

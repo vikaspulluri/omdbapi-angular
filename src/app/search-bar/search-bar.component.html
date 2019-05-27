@@ -1,0 +1,16 @@
+<ngx-ui-loader></ngx-ui-loader>
+<nav>
+  <div class="brand-container">
+    <div class="logo-container">
+      <h1>
+        <a href="http://www.meanpro.com" title="Meanpro profile" target="_blank">meanpro</a>
+      </h1>
+    </div>
+  </div>
+  <div class="search-bar-container">
+    <div class="wrap">
+      <input type="text" name="search" placeholder="Search" [(ngModel)]="searchQuery">
+      <button type="button" class="btn search-btn" (click)="onSearchMovie()">Search</button>
+    </div>
+  </div>
+</nav>

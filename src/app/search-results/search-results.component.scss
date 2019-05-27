@@ -1,0 +1,68 @@
+@import 'variables';
+
+.results-container {
+    width: 100%;
+    max-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    height: calc(100% - 60px);
+    @media screen and (max-width: 900px) {
+        max-width: 100%;
+    }
+
+    .main-wrapper {
+        display: flex;
+    }
+
+    .img-container {
+        max-width: 6vw;
+        @media screen and (max-width: 900px) {
+            max-width: 25vw;
+        }
+        img {
+            width: 100%;
+            margin: .5rem;
+            border: 1px solid;
+        }
+    }
+    .main-content {
+        position: relative;
+        left: 1rem;
+        @media screen and (max-width: 900px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .result {
+        padding: 0 .5rem .25rem;
+        border: 1px solid;
+        margin: .25rem;
+        border-radius: .25rem;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,.2);
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+    .result:hover, .result.selected {
+        background: $primary-bg-color;
+        color: $white;
+        transform: scale(1.02);
+    }
+    .sub-wrapper p {
+        margin: 0;
+    }    
+}
+.empty-screen {
+    h1 {
+        text-align: center;
+    }
+}
+.old-results {
+    margin-top: 1.25rem;
+}
