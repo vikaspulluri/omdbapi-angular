@@ -14,7 +14,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   private movieSubscription: Subscription;
   public movieResults;
   public oldResults;
-  public activeResultId = '';
+  public activeResultId = this.utilService.getActiveResultId();
   public itemsPerPage = paginationConfig.itemsPerPage;
   public currentPage = paginationConfig.currentPage;
   public itemsPerPageOptions = paginationConfig.itemsPerPageOptions;
@@ -31,6 +31,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   onResultClick(id: string) {
+    this.utilService.setActiveResultId(id);
     this.activeResultId = id;
     this.router.navigate(['/search'], {queryParams: {id: id}});
   }

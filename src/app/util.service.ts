@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 export class UtilService {
     private movieSearchResults = [];
     private oldSearchResults = [];
+    private activeResultId;
     public movieUpdatesSubject = new Subject();
 
     constructor(@Inject(DOCUMENT) private document: HTMLDocument) {}
@@ -42,5 +43,12 @@ export class UtilService {
         elements.forEach((ele, i) => {
             ele.classList.remove(className);
         });
+    }
+
+    public setActiveResultId(id) {
+        this.activeResultId = id;
+    }
+    public getActiveResultId() {
+        return this.activeResultId;
     }
 }
