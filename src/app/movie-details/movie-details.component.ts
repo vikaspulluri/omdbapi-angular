@@ -35,7 +35,9 @@ export class MovieDetailsComponent implements OnInit {
     this.httpService.getMovieDetails(this.movieId).subscribe(response => {
       this.movieDetails = response;
       this.updateMovieDetailsData(response);
-      this.utilService.toggleClassOnClick('.tabs-container li', 'active', '.content');
+      setTimeout(() => {
+        this.utilService.toggleClassOnClick('.tabs-container li', 'active', '.content');
+      }, 1000);
       this.loaderService.stop();
     }, err => this.loaderService.stop());
   }
