@@ -25,8 +25,8 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.movieResults = this.utilService.getMovieSearchResults();
     this.oldResults = this.utilService.getOldMovieSearchResults();
     this.movieSubscription = this.utilService.movieUpdatesSubject.subscribe(data => {
-    this.movieResults = this.utilService.getMovieSearchResults();
-    this.oldResults = this.utilService.getOldMovieSearchResults();
+      this.movieResults = this.utilService.getMovieSearchResults();
+      this.oldResults = this.utilService.getOldMovieSearchResults();
     });
   }
 

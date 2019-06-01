@@ -21,6 +21,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 // config imports
 import { progressBarConfig, toastrConfig } from './libraries.config';
+import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { progressBarConfig, toastrConfig } from './libraries.config';
     SearchResultsComponent,
     SearchBarComponent,
     MovieDetailsComponent,
-    HomepageComponent
+    HomepageComponent,
+    WelcomeScreenComponent
   ],
   imports: [
     BrowserModule,

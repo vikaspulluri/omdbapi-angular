@@ -13,7 +13,12 @@ export class UtilService {
 
     public setMovieResults(data) {
         this.oldSearchResults = [...this.movieSearchResults, ...this.oldSearchResults];
-        this.movieSearchResults = data;
+        this.movieSearchResults = data.map(result => {
+            if (result.Poster && result.Poster === 'N/A') {
+                result.Poster = null;
+            }
+            return result;
+        });
         this.movieUpdatesSubject.next(true);
     }
 

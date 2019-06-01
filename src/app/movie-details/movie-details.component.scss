@@ -2,10 +2,11 @@
 aside{
     margin: 0px;
     padding: 5px;
-	min-height: 50%;background: #bdc3c7;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(bottom, #2c3e50, #bdc3c7);
-	background: -o-linear-gradient(bottom, #2c3e50, #bdc3c7);
-	background: linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    min-height: 50%;
+    background: $white;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(bottom, $primary-bg-color, $white);
+	background: -o-linear-gradient(bottom, $primary-bg-color, $white);
+	background: linear-gradient(to top, $primary-bg-color, $white);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     position: relative;
     overflow-y: auto;
     height: calc(100vh - 60px); // deduct header height for full display
@@ -149,7 +150,7 @@ aside{
             display: inline-table;
             width: calc(25% - 1.2em);
             &.active {
-                background:#00267b;
+                background: darken($secondary-bg-color, 5%);
                 font-weight: 800;
             }
         }

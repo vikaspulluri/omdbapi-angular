@@ -1,3 +1,8 @@
 <app-search-bar></app-search-bar>
-<app-search-results></app-search-results>
-<app-movie-details></app-movie-details>
+<div class="wrap" *ngIf='isResultsExist'>
+    <app-search-results></app-search-results>
+    <app-movie-details></app-movie-details>
+</div>
+<div class="wrap" *ngIf='!isResultsExist'>
+    <app-welcome-screen></app-welcome-screen>
+</div>
